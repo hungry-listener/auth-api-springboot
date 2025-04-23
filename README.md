@@ -107,6 +107,7 @@ openssl genrsa -out private.key 2048
 
 # Extract public key
 openssl rsa -in private.key -pubout -out public.key
+```
 
 ### 🛠️ Update the following configuration properties in `application.properties`:
 
@@ -133,6 +134,7 @@ sudo apt install redis-server
 
 # On macOS with Homebrew
 brew install redis
+```
 
 ### 🔒 Enable Redis Lockout & Update Configuration
 Update the following properties in your application.properties or application.yml file:
@@ -168,6 +170,7 @@ brew install mailhog
 
 # Or run using Docker
 docker run -d -p 1025:1025 -p 8025:8025 mailhog/mailhog
+```
 
 Access the MailHog web UI at http://localhost:8025
 
