@@ -1,0 +1,4168 @@
+{
+	"info": {
+		"_postman_id": "b30d36fe-60a3-4af2-a041-85b5239b2dfa",
+		"name": "Auth-API-Springboot",
+		"description": "### 📬 Postman Collection\n\nA comprehensive collection of **requests and sample responses** for testing and exploring the endpoints of the `auth-api-springboot` project.\n\nThis collection is designed to help developers and testers quickly understand the behavior of each API route, including authentication flows, user management, token operations, and more.\n\nIt includes:\n\n- ✅ User registration and login\n    \n- 🔐 Email verification and token-based authentication\n    \n- 🔁 Token refresh and validation\n    \n- 👤 Role-based and admin-level actions\n    \n- 🔄 Password reset functionality\n    \n\n> &lt;p &gt;💡 Import the collection into Postman and start testing right away. Environment variables are included for convenience.&lt;/p&gt;",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44246711",
+		"_collection_link": "https://prashant-3005087.postman.co/workspace/4310540a-801c-41bf-8893-e5b7f23a54a5/collection/44246711-b30d36fe-60a3-4af2-a041-85b5239b2dfa?action=share&source=collection_link&creator=44246711"
+	},
+	"item": [
+		{
+			"name": "Email id validation",
+			"item": [
+				{
+					"name": "Email invalid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-email?email=abc@b",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abc@b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-email?email=abc@b",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "abc@b"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 07:58:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid email Id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Email Taken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-email?email=abc1@gmail.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abc1@gmail.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-email?email=abc1@gmail.com",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "abc1@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:00:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"abc1@gmail.com Id already exists.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Email Correct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-email?email=abc1@yahoo.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abc1@yahoo.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-email?email=abc1@yahoo.com",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "abc1@yahoo.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:01:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valid\": true,\n    \"message\": \"Email looks good!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Email Empty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-email?email=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-email?email=",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:01:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Email cannot be empty.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "An AJAX request can be sent to the API to validate an email address. The validation checks include:\n\n- ✅ Whether the email is in a valid format\n    \n- 🌐 Whether the domain is valid\n    \n- 🔁 Whether the email is already registered\n    \n- 🚫 Whether the email field is empty\n    \n\nThis helps ensure early feedback during user registration or login workflows."
+		},
+		{
+			"name": "User name validation",
+			"item": [
+				{
+					"name": "Username taken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-username?username=testuser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-username"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "testuser"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-username?username=testuser",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-username"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "testuser"
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:02:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Username testuser is already taken.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Username Available",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-username?username=testuser1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-username"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "testuser1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-username?username=testuser1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-username"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "testuser1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:03:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valid\": true,\n    \"message\": \"Username is available!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Username Empty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-username?username=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-username"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-username?username=",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-username"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:03:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Username cannot be empty.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "An AJAX request can be sent to the API to validate a username. The validation checks include:\n\n- 🚫 Whether the username field is empty\n    \n- 🔁 Whether the username is already taken\n    \n- ✅ Whether the username is available for registration\n    \n\nThis enables real-time feedback during the sign-up process."
+		},
+		{
+			"name": "Password Policy validation",
+			"item": [
+				{
+					"name": "Password Invalid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-password?password=12345",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-password"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-password?password=12345",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-password"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "12345"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:04:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Password must be at least 8 characters and contain uppercase, lowercase, digit, and special character\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Password Valid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/validate-password?password=12345@Abcd",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-password"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "12345@Abcd"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/validate-password?password=12345@Abcd",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"validate-password"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "12345@Abcd"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:04:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valid\": true,\n    \"message\": \"Password meets all requirements.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "This validates the password against the defined policy:\n\n**Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.**\n\nReal-time validation helps ensure users create strong, secure passwords during registration or password reset."
+		},
+		{
+			"name": "User Registration",
+			"item": [
+				{
+					"name": "Empty fields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"\",\n    \"username\":\"\",\n    \"password\":\"\",\n    \"confirmPassword\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"\",\n    \"username\":\"\",\n    \"password\":\"\",\n    \"confirmPassword\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:05:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"password\": [\n        {\n            \"code\": \"NotBlank\",\n            \"message\": \"Password is required\"\n        },\n        {\n            \"code\": \"PasswordPolicy\",\n            \"message\": \"Password must be at least 8 characters and contain uppercase, lowercase, digit, and special character\"\n        }\n    ],\n    \"email\": [\n        {\n            \"code\": \"NotBlank\",\n            \"message\": \"Email is required\"\n        },\n        {\n            \"code\": \"InvalidDomain\",\n            \"message\": \"Email domain is invalid.\"\n        }\n    ],\n    \"username\": [\n        {\n            \"code\": \"NotBlank\",\n            \"message\": \"Username is required\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Invalid email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"a@a.com\",\n    \"username\":\"ab\",\n    \"password\":\"12345@Abcd\",\n    \"confirmPassword\":\"12345@Abcd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"a@a.com\",\n    \"username\":\"ab\",\n    \"password\":\"12345@Abcd\",\n    \"confirmPassword\":\"12345@Abcd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:06:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": [\n        {\n            \"code\": \"InvalidDomain\",\n            \"message\": \"Email domain is invalid.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Empty username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"a@yahoo.com\",\n    \"username\":\"\",\n    \"password\":\"12345@Abc\",\n    \"confirmPassword\":\"12345@Abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"a@yahoo.com\",\n    \"username\":\"\",\n    \"password\":\"12345@Abc\",\n    \"confirmPassword\":\"12345@Abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:07:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": [\n        {\n            \"code\": \"NotBlank\",\n            \"message\": \"Username is required\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Invalid Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"a@yahoo.com\",\n    \"username\":\"abc\",\n    \"password\":\"12345@\",\n    \"confirmPassword\":\"12345@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"a@yahoo.com\",\n    \"username\":\"abc\",\n    \"password\":\"12345@\",\n    \"confirmPassword\":\"12345@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:08:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"password\": [\n        {\n            \"code\": \"PasswordPolicy\",\n            \"message\": \"Password must be at least 8 characters and contain uppercase, lowercase, digit, and special character\"\n        }\n    ],\n    \"username\": [\n        {\n            \"code\": \"AlreadyTaken\",\n            \"message\": \"Username is already taken.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Password does not match",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"a@yahoo.com\",\n    \"username\":\"abc\",\n    \"password\":\"12345@Abc\",\n    \"confirmPassword\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"a@yahoo.com\",\n    \"username\":\"abc\",\n    \"password\":\"12345@Abc\",\n    \"confirmPassword\":\"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:08:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"confirmPassword\": [\n        {\n            \"code\": \"NoMatch\",\n            \"message\": \"Passwords do not match\"\n        }\n    ],\n    \"username\": [\n        {\n            \"code\": \"AlreadyTaken\",\n            \"message\": \"Username is already taken.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Email server down",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"abc1@yahoo.com\",\n    \"username\":\"abc1\",\n    \"password\":\"12345@Abcd\",\n    \"confirmPassword\":\"12345@Abcd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"abc1@yahoo.com\",\n    \"username\":\"abc1\",\n    \"password\":\"12345@Abcd\",\n    \"confirmPassword\":\"12345@Abcd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:09:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Failed to send email to: abc1@yahoo.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"abc1@yahoo.com\",\n    \"username\":\"abc1\",\n    \"password\":\"12345@Abcd\",\n    \"confirmPassword\":\"12345@Abcd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"abc1@yahoo.com\",\n    \"username\":\"abc1\",\n    \"password\":\"12345@Abcd\",\n    \"confirmPassword\":\"12345@Abcd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:10:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully!\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### 📝 User Registration\n\nThis endpoint handles **user registration** and performs comprehensive validation, including:\n\n- 📧 Email format and availability\n    \n- 👤 Username availability and format\n    \n- 🔒 Password strength (based on the defined policy)\n    \n- ✅ Matching of `password` and `confirmPassword` fields\n    \n\nIf validation fails, the response includes clear **error messages** along with corresponding **error codes**, as demonstrated in the examples below. If the validation is successful it registers the user and sends an email. In case the mail server is down the user will not be registere and an error message will be sent as given in the example below."
+		},
+		{
+			"name": "Email Activation",
+			"item": [
+				{
+					"name": "Correct Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/confirm-registration?token=1647314c-68be-47a2-b3ca-9274b8ce00aa",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"confirm-registration"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1647314c-68be-47a2-b3ca-9274b8ce00aa"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/confirm-registration?token=1647314c-68be-47a2-b3ca-9274b8ce00aa",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"confirm-registration"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "1647314c-68be-47a2-b3ca-9274b8ce00aa"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:12:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valid\": true,\n    \"message\": \"Token is valid! User can login\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Incorrect or used/expired Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/confirm-registration?token=1647314c-68be-47a2-b3ca-9274b8ce00aa",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"confirm-registration"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1647314c-68be-47a2-b3ca-9274b8ce00aa"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/confirm-registration?token=1647314c-68be-47a2-b3ca-9274b8ce00aa",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"confirm-registration"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "1647314c-68be-47a2-b3ca-9274b8ce00aa"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:14:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid, used or expired token. Please request a new activation link.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### ✉️ Email Activation\n\nThis endpoint handles **email verification** after registration.  \n  \nA unique activation token is sent to the user's email as part of the verification link.\n\nWhen the user clicks the link:\n\n- 🔐 The token is validated\n    \n- ✅ The user is marked as _active_ in the database\n    \n- 📩 A response message is returned indicating success or failure (e.g., expired or invalid token)\n    \n\nThis step is essential to prevent unauthorized or spam registrations."
+		},
+		{
+			"name": "Login request",
+			"item": [
+				{
+					"name": "Incorrect email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"ac@yahoo.com\",\n    \"password\":\"12345@Ac\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"ac@yahoo.com\",\n    \"password\":\"12345@Ac\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:15:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"No user registered with this email.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Incorrect password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc@yahoo.com\",\n    \"password\":\"12345@Ac\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"abc@yahoo.com\",\n    \"password\":\"12345@Ac\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:16:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid credentials.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Correct but unapproved",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc@yahoo.com\",\n    \"password\":\"54321@Abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"abc@yahoo.com\",\n    \"password\":\"54321@Abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:17:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Your account is not yet approved.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Account Locked",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc@yahoo.com\",\n    \"password\":\"54321@Abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"abc@yahoo.com\",\n    \"password\":\"54321@Abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:17:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"You account is locked due to too many failed attempts.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc1@gmail.com\",\n    \"password\":\"12345@Abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"abc1@gmail.com\",\n    \"password\":\"12345@Abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:20:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### 🔐 User Login\n\nThis endpoint handles **user authentication** with the following validations:\n\n- 📧 Verifies email format and existence\n    \n- 🔑 Checks password validity\n    \n- ✅ Confirms if the user is approved and email is verified\n    \n- 🛡️ Protects against brute-force attacks by locking the account after repeated failed attempts\n    \n\nUpon successful login, a **JWT token** is generated and returned in the response. This token is used to authorize subsequent requests.\n\n> &lt;p &gt;🔒 Secure login flow ensures both user safety and application integrity.&lt;/p&gt;"
+		},
+		{
+			"name": "Admin roles",
+			"item": [
+				{
+					"name": "Find pending users expired token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUyOTUyNTgsImV4cCI6MTc0NTI5ODg1OCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.Q0aB220tUCgeimrIzXWpX8UajKsvkQUD4FCvzLz86iuOqLMLLFSS27xDs3Ws4YHgqOpLACzWZHxPNjRpSTW7T7ZQi1rQeUyK5FucywemWWQwOf3HFb8TAy64ht_jR8r9yWWV3ajiLFOuqTbdQ4Bc-xnNdaDe_SApZdcbXM04RoLNl-oaYuuM50NvIBBYu6BGRpVggau8xhFnTdD4xvfiNL4BAA-whXo2yuViC8bu1HX9zSfvuOiQK8hmQaayQ9gmV3IEd2DROPdmCwzCyg1hWOIxh2EoSOYR4SFt_QW3M7lKCHaxic6vEd4diUsyobAwnM5LUWqyqMYhb-x3Bb4KAhx_Vti4vVF0SEWtTa0Ajx0Tl1IBzJYeI8kYmifwuVcQQ_xKV_u1RLMAsCj4tK65YjgmnhM1_OQycuiOrFxMsa7E8v5B6CK1N1qS9kCgm7g8vPt9_vzyz2OdPclzRcutRTEUUpKZs_EC1YAWKMe2TSAbVzslXBRzD013-Uc5x0-0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/find-pending-users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"find-pending-users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUyOTUyNTgsImV4cCI6MTc0NTI5ODg1OCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.Q0aB220tUCgeimrIzXWpX8UajKsvkQUD4FCvzLz86iuOqLMLLFSS27xDs3Ws4YHgqOpLACzWZHxPNjRpSTW7T7ZQi1rQeUyK5FucywemWWQwOf3HFb8TAy64ht_jR8r9yWWV3ajiLFOuqTbdQ4Bc-xnNdaDe_SApZdcbXM04RoLNl-oaYuuM50NvIBBYu6BGRpVggau8xhFnTdD4xvfiNL4BAA-whXo2yuViC8bu1HX9zSfvuOiQK8hmQaayQ9gmV3IEd2DROPdmCwzCyg1hWOIxh2EoSOYR4SFt_QW3M7lKCHaxic6vEd4diUsyobAwnM5LUWqyqMYhb-x3Bb4KAhx_Vti4vVF0SEWtTa0Ajx0Tl1IBzJYeI8kYmifwuVcQQ_xKV_u1RLMAsCj4tK65YjgmnhM1_OQycuiOrFxMsa7E8v5B6CK1N1qS9kCgm7g8vPt9_vzyz2OdPclzRcutRTEUUpKZs_EC1YAWKMe2TSAbVzslXBRzD013-Uc5x0-0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/auth/find-pending-users",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"find-pending-users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "167"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:23:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"JWT expired 97752468 milliseconds ago at 2025-04-22T05:14:18.000Z. Current time: 2025-04-23T08:23:30.468Z. Allowed clock skew: 0 milliseconds.\",\n    \"status\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "Find pending user wrong token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92WQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUyOTUyNTgsImV4cCI6MTc0NTI5ODg1OCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.Q0aB220tUCgeimrIzXWpX8UajKsvkQUD4FCvzLz86iuOqLMLLFSS27xDs3Ws4YHgqOpLACzWZHxPNjRpSTW7T7ZQi1rQeUyK5FucywemWWQwOf3HFb8TAy64ht_jR8r9yWWV3ajiLFOuqTbdQ4Bc-xnNdaDe_SApZdcbXM04RoLNl-oaYuuM50NvIBBYu6BGRpVggau8xhFnTdD4xvfiNL4BAA-whXo2yuViC8bu1HX9zSfvuOiQK8hmQaayQ9gmV3IEd2DROPdmCwzCyg1hWOIxh2EoSOYR4SFt_QW3M7lKCHaxic6vEd4diUsyobAwnM5LUWqyqMYhb-x3Bb4KAhx_Vti4vVF0SEWtTa0Ajx0Tl1IBzJYeI8kYmifwuVcQQ_xKV_u1RLMAsCj4tK65YjgmnhM1_OQycuiOrFxMsa7E8v5B6CK1N1qS9kCgm7g8vPt9_vzyz2OdPclzRcutRTEUUpKZs_EC1YAWKMe2TSAbVzslXBRzD013-Uc5x0-0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/find-pending-users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"find-pending-users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92WQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUyOTUyNTgsImV4cCI6MTc0NTI5ODg1OCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.Q0aB220tUCgeimrIzXWpX8UajKsvkQUD4FCvzLz86iuOqLMLLFSS27xDs3Ws4YHgqOpLACzWZHxPNjRpSTW7T7ZQi1rQeUyK5FucywemWWQwOf3HFb8TAy64ht_jR8r9yWWV3ajiLFOuqTbdQ4Bc-xnNdaDe_SApZdcbXM04RoLNl-oaYuuM50NvIBBYu6BGRpVggau8xhFnTdD4xvfiNL4BAA-whXo2yuViC8bu1HX9zSfvuOiQK8hmQaayQ9gmV3IEd2DROPdmCwzCyg1hWOIxh2EoSOYR4SFt_QW3M7lKCHaxic6vEd4diUsyobAwnM5LUWqyqMYhb-x3Bb4KAhx_Vti4vVF0SEWtTa0Ajx0Tl1IBzJYeI8kYmifwuVcQQ_xKV_u1RLMAsCj4tK65YjgmnhM1_OQycuiOrFxMsa7E8v5B6CK1N1qS9kCgm7g8vPt9_vzyz2OdPclzRcutRTEUUpKZs_EC1YAWKMe2TSAbVzslXBRzD013-Uc5x0-0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/auth/find-pending-users",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"find-pending-users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:24:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.\",\n    \"status\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "Success",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/find-pending-users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"find-pending-users"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/auth/find-pending-users",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"find-pending-users"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:22:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"role\": \"editor\",\n            \"roleId\": 2,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"test@example.com\",\n            \"username\": \"testuser\"\n        },\n        {\n            \"role\": \"author\",\n            \"roleId\": 3,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"author1@gmail.com\",\n            \"username\": \"author1\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"aabc@yahoo.com\",\n            \"username\": \"aadmin\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": false,\n            \"isApproved\": false,\n            \"email\": \"aaabc@hotmail.com\",\n            \"username\": \"aadmins\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": false,\n            \"isApproved\": false,\n            \"email\": \"aadmin123@gmail.com\",\n            \"username\": \"aadmin123\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"aadmin1234@gmail.com\",\n            \"username\": \"aadmin1234\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"aadmin12346@gmail.com\",\n            \"username\": \"aadmin12346\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": false,\n            \"isApproved\": false,\n            \"email\": \"abc11@gmail.com\",\n            \"username\": \"abc11\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"abc22@gmail.com\",\n            \"username\": \"abc22\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"abc33@gmail.com\",\n            \"username\": \"abc33\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"abc@yahoo.com\",\n            \"username\": \"abc\"\n        },\n        {\n            \"role\": \"viewer\",\n            \"roleId\": 6,\n            \"isActive\": true,\n            \"isApproved\": false,\n            \"email\": \"abc1@yahoo.com\",\n            \"username\": \"abc1\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update user status- Success",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"aabc@yahoo.com\",\n    \"username\":\"aadmin\",\n    \"roleId\":\"3\",\n    \"isActive\":\"true\",\n    \"isApproved\":\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/update-user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"update-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"aabc@yahoo.com\",\n    \"username\":\"aadmin\",\n    \"roleId\":\"3\",\n    \"isActive\":\"true\",\n    \"isApproved\":\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/update-user",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"update-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:45:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User status updated successfully\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update user- Invalid jwt",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"aabc@yahoo.com\",\n    \"username\":\"aadmin\",\n    \"roleId\":\"3\",\n    \"isActive\":\"true\",\n    \"isApproved\":\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/update-user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"update-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"aabc@yahoo.com\",\n    \"username\":\"aadmin\",\n    \"roleId\":\"3\",\n    \"isActive\":\"true\",\n    \"isApproved\":\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/update-user",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"update-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:48:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.\",\n    \"status\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "Update user- malformed jwt",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGcOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"aabc@yahoo.com\",\n    \"username\":\"aadmin\",\n    \"roleId\":\"3\",\n    \"isActive\":\"true\",\n    \"isApproved\":\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/update-user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"update-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGcOiJSUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyTmFtZSI6ImFkbWluMTIzNCIsImlzQXBwcm92ZWQiOnRydWUsInVzZXJJZCI6MjMsImVtYWlsIjoiYWJjMUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzOTY0NDAsImV4cCI6MTc0NTQwMDA0MCwiaXNzIjoiYXV0aC1zZXJ2aWNlIn0.gbYisWjsTIqpx2X0OtW17PoTZ_Y6TIVGgssX2YziootdexqZxP7k2NhuD37fIPaT7bYhhdIFiG8v_cpjSWtQU0tW7w3DihcJFISVDt5HashsBbnRA01kugIgyVzn2HDe0lCV5-M1EVoiX1WhzKKYEQzUs3ckFYGOYxvLAtBbfRpag4QW2Em0NKirlyNdg05oQz0aTYV5BrKja5BHbw9GLhKV9DCyYQg1zOn7kKUp_K18wS4cxSKvsyRVGN_nbZq3d9L5tUhspI9VLD_KFGnfE01DRWOmcUHd4HjTd84mRx6ttqbbTjHlWykuVlx357zex3tMYPE9nJEDj0X_eSi886boeVyX1KJEehNpHp1C-l523utkyCFtK2IKAZ3Hge6eonF0OA1LksZ0WkWE8F0jAQk1M5v8fsvmKYlqZY4h_w8WoNSCTdWKJlOT00EyB2Wl0NkAFtjpvvflCilJJiXdSuXp1vtA5Tr022GF75NSTB5knY1tBCcg2xH9lruJ_3sR",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"aabc@yahoo.com\",\n    \"username\":\"aadmin\",\n    \"roleId\":\"3\",\n    \"isActive\":\"true\",\n    \"isApproved\":\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/update-user",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"update-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:50:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Malformed protected header JSON: Unable to deserialize: Illegal unquoted character ((CTRL-CHAR, code 14)): has to be escaped using backslash to be included in name\\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 6]\",\n    \"status\": 400\n}"
+						}
+					]
+				}
+			],
+			"description": "### 👥 Admin: Manage Users\n\nThese endpoints are part of the **user management** module and require a valid **JWT token**. Only users with the **admin role** are authorized to access them.\n\n#### 🔍 Find Pending Users\n\n- 🔐 Validates the JWT token from the login response\n    \n- 🧑‍💼 Ensures the requester has admin privileges\n    \n- 📋 Returns a list of users who are **pending approval** (not yet activated)\n    \n\nAdmins can use this list to review user applications and manage onboarding.\n\n🚫 Requests from non-admin users will receive a **400 Forbidden** response.\n\n---\n\n#### ✏️ Update User\n\n- 🛠️ Allows admins to **update user status** (e.g., approve/reject)\n    \n- 🔄 Supports assigning or modifying **user roles**\n    \n\nThis endpoint enables full control over user lifecycle and access levels."
+		},
+		{
+			"name": "Forgot Password",
+			"item": [
+				{
+					"name": "Wrong email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/forgot-password?email=abc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"abc1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/forgot-password?email=abc",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"forgot-password"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "abc"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:26:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid email Id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Success",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/forgot-password?email=abc@yahoo.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abc@yahoo.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/forgot-password?email=abc@yahoo.com",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"forgot-password"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "abc@yahoo.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:27:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password reset email sent.\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Email id not registered",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/forgot-password?email=abc2@yahoo.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abc2@yahoo.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/forgot-password?email=abc2@yahoo.com",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"forgot-password"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "abc2@yahoo.com"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:26:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Email id not registered.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### 🔑 Forgot Password\n\nThis endpoint initiates the **password reset flow** for users who have forgotten their password.\n\n- 📧 Accepts a valid, registered email address\n    \n- 🔐 Generates a secure password reset token\n    \n- ✉️ Sends an email containing the reset link with the token embedded\n    \n\nThe token can then be used in the **Reset Password** endpoint to securely update the password.\n\n> &lt;p &gt;⚠️ If the email is not registered or is invalid, a generic success message is still returned to prevent information disclosure.&lt;/p&gt;"
+		},
+		{
+			"name": "Reset Password",
+			"item": [
+				{
+					"name": "Success",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/reset-password?resetToken=a820083a-1202-4eca-9efb-dd89ecf181db",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "resetToken",
+									"value": "a820083a-1202-4eca-9efb-dd89ecf181db"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/reset-password?resetToken=a820083a-1202-4eca-9efb-dd89ecf181db",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"reset-password"
+									],
+									"query": [
+										{
+											"key": "resetToken",
+											"value": "a820083a-1202-4eca-9efb-dd89ecf181db"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:33:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valid\": true,\n    \"message\": \"Token is valid! User can reset their password.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Invalid token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/reset-password?resetToken=a820083-1202-4eca-9efb-dd89ecf181db",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "resetToken",
+									"value": "a820083-1202-4eca-9efb-dd89ecf181db"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/auth/reset-password?resetToken=a820083-1202-4eca-9efb-dd89ecf181db",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"reset-password"
+									],
+									"query": [
+										{
+											"key": "resetToken",
+											"value": "a820083-1202-4eca-9efb-dd89ecf181db"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:34:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid or expired token. Please request a new Reset Password link.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resetToken\":\"a820083a-1202-4eca-9efb-dd89ecf181db\",\n    \"newPassword\":\"54321@Abcde\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"resetToken\":\"a820083a-1202-4eca-9efb-dd89ecf181db\",\n    \"newPassword\":\"54321@Abcde\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/auth/reset-password",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 08:36:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password successfully updated\",\n    \"success\": true\n}"
+						}
+					]
+				}
+			],
+			"description": "🔁 **Reset Password Token Validation**  \n  \nThis endpoint validates the password reset token when the user clicks the reset link in their email.\n\n🔎 Checks the validity and expiry of the reset token  \n  \n✅ If valid, returns a response indicating the token is valid and the frontend can display the password change form  \n  \n❌ If invalid or expired, returns an error response (see example below)\n\n---\n\n🔒 **Change Password**  \n  \nThis endpoint allows the user to update their password using the valid reset token.\n\n📨 Accepts the new password along with the reset token  \n  \n🔐 Updates the user's password securely  \n  \n🛑 Marks the token as used to prevent reuse\n\n  \n\n⚠️ If the token is invalid or already used, an appropriate error message is returned to ensure security."
+		}
+	]
+}
