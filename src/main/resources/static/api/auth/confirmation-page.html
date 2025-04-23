@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirming Registration...</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get("token");
+
+            const messageEl = document.getElementById("message");
+
+            if (token) {
+                fetch(`/api/auth/confirm-registration?token=${token}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        messageEl.innerText = data.message;
+                        messageEl.style.color = data.valid ? "green" : "red";
+                        if (data.valid) {
+                            setTimeout(() => {
+                                window.location.href = "api/auth/login"; // or show login link
+                            }, 3000);
+                        }
+                    })
+                    .catch(err => {
+                        messageEl.innerText = "Something went wrong.";
+                        messageEl.style.color = "red";
+                    });
+            } else {
+                messageEl.innerText = "Missing token in URL.";
+                messageEl.style.color = "red";
+            }
+        });
+    </script>
+</head>
+<body>
+    <h2>Account Activation</h2>
+    <p id="message">Verifying...</p>
+</body>
+</html>

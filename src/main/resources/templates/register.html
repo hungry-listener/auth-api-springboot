@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+<div class="form-container">
+    <h1>Register</h1>
+
+    <div class="message">
+        <div id="successMessage" class="success" style="display: none;"></div>
+        <div id="errorMessage" class="error" style="display: none;"></div>
+    </div>
+
+    <form id="registrationForm">
+        <label>Email:</label><br/>
+        <input id="email" type="email" name="email" /><br/>
+        <span id="email-error" class="field-error"></span><br/>
+
+        <label>Username:</label><br/>
+        <input id="username" type="text" name="username" /><br/>
+        <span id="username-error" class="field-error"></span><br/>
+
+        <label>Password:</label><br/>
+        <input id="password" type="password" name="password" /><br/>
+        <span id="password-error" class="field-error"></span><br/>
+
+        <label>Re-enter Password:</label><br/>
+        <input id="confirmPassword" type="password" name="confirmPassword" /><br/>
+        <span id="confirm-password-error" class="field-error"></span><br/>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+    
+    function debounce(fn, delay) {
+        let timeoutId;
+        return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => fn.apply(this, args), delay);
+        };
+    }
+
+    $(document).ready(function () {
+        const validateField = debounce(function (type, value, targetId) {
+            if (!value) {
+                $(`#${targetId}`).text("").css("color", "");
+                return;
+            }
+
+            $.get(`/api/auth/validate-${type}`, { [type]: value }, function (response) {
+                $(`#${targetId}`).text(response.message).css("color", response.valid ? "green" : "red");
+            });
+        }, 400); // 400ms delay
+
+        $('#email').on('input', function () {
+            validateField("email", $(this).val(), "email-error");
+        }).on('blur', function () {
+            validateField("email", $(this).val(), "email-error");
+        });
+
+        $('#username').on('input', function () {
+            validateField("username", $(this).val(), "username-error");
+        }).on('blur', function () {
+            validateField("username", $(this).val(), "username-error");
+        });
+
+        $('#password').on('input', function () {
+            validateField("password", $(this).val(), "password-error");
+        }).on('blur', function () {
+            validateField("password", $(this).val(), "password-error");
+        });
+    });
+
+
+    // Submit form with JSON using Fetch
+    document.getElementById("registrationForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        // Clear previous messages
+        document.getElementById("successMessage").style.display = "none";
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("confirm-password-error").textContent = "";
+
+        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            document.getElementById("confirm-password-error").textContent = "Passwords do not match";
+            return;
+        }
+
+        const requestBody = {
+            email,
+            username,
+            password,
+            confirmPassword
+        };
+
+        try {
+            const response = await fetch("/api/auth/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(requestBody)
+            });
+
+            const data = await response.json();
+            console.log("Response data: ",JSON.stringify(data))
+
+            if (data.status == "success") {
+                document.getElementById("successMessage").textContent = data.message || "Registered successfully!";
+                document.getElementById("successMessage").style.display = "block";
+                document.getElementById("registrationForm").reset();
+                // Clear all field-specific error messages
+                ["email", "username", "password", "confirm-password"].forEach(id => {
+                    const errorEl = document.getElementById(`${id}-error`);
+                    if (errorEl) errorEl.textContent = "";
+                });
+            } else {
+                // Clear previous field-specific errors
+                ["email", "username", "password", "confirm-password"].forEach(id => {
+                    const errorEl = document.getElementById(`${id}-error`);
+                    if (errorEl) errorEl.textContent = "";
+                });
+
+                if (data.errors) {
+                    // Display each field-specific error
+                    for (const [field, message] of Object.entries(data.errors)) {
+                        const errorElement = document.getElementById(`${field}-error`);
+                        if (errorElement) {
+                            errorElement.textContent = message;
+                            errorElement.style.color = "red";
+                        }
+                    }
+            }
+        }
+        } catch (err) {
+            document.getElementById("errorMessage").textContent = "Unexpected error occurred.";
+            document.getElementById("errorMessage").style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>

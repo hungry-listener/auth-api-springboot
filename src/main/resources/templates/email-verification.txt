@@ -1,0 +1,13 @@
+Hi,
+
+Thank you for registering.
+
+Please click the following link to activate your account:
+{link}
+
+Note: This link will expire in 15 minutes.
+
+If you did not request this, please ignore this email.
+
+Best regards,  
+Your Team

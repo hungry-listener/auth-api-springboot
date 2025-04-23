@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script>
+        function login(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            sendLoginRequest(email, password);
+        }
+
+        function sendLoginRequest(email, password) {
+            fetch("/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: email, password: password })
+            })
+            .then(handleResponse)
+            .catch(handleError);
+        }
+
+        function handleResponse(response) {
+            return response.json().then(function(data) {
+                console.log(JSON.stringify(data))
+                if (data.status === "success") {
+                    alert("Login successful!");
+                    // window.location.href = "/dashboard"; // Uncomment to redirect
+                } else {
+                    alert("Login failed: " + data.message);
+                }
+            });
+        }
+
+        function handleError(error) {
+            console.error("Error:", error);
+            alert("Something went wrong while sending the login request.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Login</h1>
+    <form onsubmit="login(event)">
+        <label for="email">Email:</label><br/>
+        <input type="email" id="email" required /><br/><br/>
+
+        <label for="password">Password:</label><br/>
+        <input type="password" id="password" required /><br/><br/>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
