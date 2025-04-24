@@ -80,6 +80,16 @@ Run the app and let JPA generate the required tables automatically.
 
 📌 Note: Make sure you have created a database with the name authentication_micro or any other name of your choice and have granted access to the user name.
 
+> 📌 **Note:**  
+> For security purposes, users registered via the `/register` endpoint are assigned the default role of **`viewer`** (`role_id = 6`).  
+> 
+> To grant admin-level access, manually update the user's role to **`admin`** (`role_id = 1`) in the database.  
+> 
+> Additionally, ensure the following flags are set:  
+> - `is_active = 1`  
+> - `is_approved = 1`
+
+
 ---
 
 ### 🌐 Add GeoLite2 Database
