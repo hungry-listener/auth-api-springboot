@@ -1,4 +1,4 @@
-INSERT INTO `roles` (`id`, `name`, `description`) VALUES
+INSERT IGNORE INTO `roles` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Has full access to all features and settings. Can manage users and content.'),
 (2, 'editor', 'Can review, edit, and publish content created by authors and contributors.'),
 (3, 'author', 'Can create and manage their own content, but cannot publish without approval.'),
