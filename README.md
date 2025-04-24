@@ -78,6 +78,8 @@ spring.datasource.password=your_password
 
 Run the app and let JPA generate the required tables automatically.
 
+📌 Note: Make sure you have created a database with the name authentication_micro or any other name of your choice and have granted access to the user name.
+
 ---
 
 ### 🌐 Add GeoLite2 Database
