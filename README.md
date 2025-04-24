@@ -16,7 +16,7 @@ This project streamlines the complex security setup process and saves developers
 - 👤 **Admin-level user management**  
 - 🔐 **Brute force attack prevention using Redis**  
 - 🔁 **Password reset via token**  
-- ✅ **Token validation and refresh support**
+- ✅ **Token validation**
 
 ---
 
@@ -216,6 +216,15 @@ spring.mail.properties.mail.smtp.starttls.enable=false
 Pull requests are welcome!  
 For major changes, please open an issue first to discuss what you would like to change.  
 Don't forget to ⭐ the repo if you find it useful!
+
+### 🔁 Contributing Workflow
+
+1. Create a new branch from `main`
+2. Make your changes and commit
+3. Push the branch and open a Pull Request (PR)
+4. Maintainer will review and test locally
+5. Once approved, the PR will be merged into `main`
+
 
 ## 🚧 Work in Progress
 
