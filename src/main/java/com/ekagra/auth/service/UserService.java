@@ -227,7 +227,7 @@ public class UserService {
         LocalDateTime now =LocalDateTime.now();
         boolean isValid = emailConfirmationTokenRepository.existsByTokenAndUsedFalseAndExpiryDateAfter(token, now);
         if(!isValid){
-            throw new InvalidTokenException("Invalid or expired token. Please request a new activation link.");
+            throw new InvalidTokenException("Invalid, used or expired token. Please request a new activation link.");
         }
     }
 
