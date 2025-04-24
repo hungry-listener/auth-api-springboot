@@ -13,8 +13,6 @@ public class UserUpdateRequest {
     
     private String email;
 
-    private String username;
-
     private Long roleId;
 
     private Boolean isActive;
