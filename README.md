@@ -204,3 +204,12 @@ spring.mail.properties.mail.smtp.starttls.enable=false
 Pull requests are welcome!  
 For major changes, please open an issue first to discuss what you would like to change.  
 Don't forget to ⭐ the repo if you find it useful!
+
+## 🚧 Work in Progress
+
+This project includes a few placeholder or partially implemented classes (e.g., related to OAuth authentication) that are not yet wired into the application flow.
+
+These are part of upcoming features and are being actively developed. Stay tuned for future updates!
+
+Feel free to explore the code and contribute if you're interested!
+

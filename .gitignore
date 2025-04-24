@@ -53,4 +53,4 @@ build/
 src/main/resources/geolite/GeoLite2-City.mmdb
 
 # Ignore application properties
-src/main/resources/application.properties
+#src/main/resources/application.properties
