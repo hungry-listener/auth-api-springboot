@@ -50,7 +50,7 @@ build/
 /src/main/resources/keys/private.key
 
 #User have to register to maxmind and download their own file.
-src/main/resources/geolite/GeoLite2-City.mmdb
+#src/main/resources/geolite/GeoLite2-City.mmdb
 
 # Ignore application properties
-src/main/resources/application.properties
+#src/main/resources/application.properties
