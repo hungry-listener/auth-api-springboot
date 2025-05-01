@@ -38,43 +38,65 @@
 
 <script>
     
-    function debounce(fn, delay) {
-        let timeoutId;
+    document.addEventListener("DOMContentLoaded", function () {
+    function debounce(func, delay) {
+        let timer;
         return function (...args) {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => fn.apply(this, args), delay);
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, args);
+            }, delay);
         };
     }
 
-    $(document).ready(function () {
-        const validateField = debounce(function (type, value, targetId) {
-            if (!value) {
-                $(`#${targetId}`).text("").css("color", "");
-                return;
+    const validateField = debounce(function (type, value, targetId) {
+    if (!value) {
+        const target = document.getElementById(targetId);
+        target.textContent = "";
+        target.style.color = "";
+        return;
+    }
+
+    fetch(`/api/auth/validate-${type}?${type}=${encodeURIComponent(value)}`)
+        .then(response => response.json())
+        .then(data => {
+            //console.log(JSON.stringify(data));
+            const target = document.getElementById(targetId);
+
+            if (data.error) {
+                // If error present in response
+                target.textContent = data.error;
+                target.style.color = "red";
+            } else if (data.valid) {
+                // If valid response
+                target.textContent = data.message;
+                target.style.color = "green";
+            } else {
+                // Handle unexpected case
+                target.textContent = "Validation failed.";
+                target.style.color = "red";
             }
+        })
+        .catch(error => {
+            console.error("Validation error:", error);
+            const target = document.getElementById(targetId);
+            target.textContent = "Server error during validation.";
+            target.style.color = "red";
+        });
+    }, 400); // 400ms delay
 
-            $.get(`/api/auth/validate-${type}`, { [type]: value }, function (response) {
-                $(`#${targetId}`).text(response.message).css("color", response.valid ? "green" : "red");
+
+    function setupValidation(inputId, type, errorId) {
+            const input = document.getElementById(inputId);
+            
+            input.addEventListener("blur", function () {
+                validateField(type, input.value, errorId);
             });
-        }, 400); // 400ms delay
+        }
 
-        $('#email').on('input', function () {
-            validateField("email", $(this).val(), "email-error");
-        }).on('blur', function () {
-            validateField("email", $(this).val(), "email-error");
-        });
-
-        $('#username').on('input', function () {
-            validateField("username", $(this).val(), "username-error");
-        }).on('blur', function () {
-            validateField("username", $(this).val(), "username-error");
-        });
-
-        $('#password').on('input', function () {
-            validateField("password", $(this).val(), "password-error");
-        }).on('blur', function () {
-            validateField("password", $(this).val(), "password-error");
-        });
+        setupValidation("email", "email", "email-error");
+        setupValidation("username", "username", "username-error");
+        setupValidation("password", "password", "password-error");
     });
 
 
@@ -139,7 +161,17 @@
                             errorElement.style.color = "red";
                         }
                     }
-            }
+                }
+
+                if (data.error) {
+                    const errorElement = document.getElementById("errorMessage");
+                    if (errorElement) {
+                        errorElement.textContent = data.error;  // ✅ FIX: use data.error
+                        errorElement.style.color = "red";
+                        errorElement.style.display = "block";   // ✅ Important: make it visible
+                    }
+                }
+
         }
         } catch (err) {
             document.getElementById("errorMessage").textContent = "Unexpected error occurred.";

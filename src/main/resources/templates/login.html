@@ -27,23 +27,42 @@
 
         function handleResponse(response) {
             return response.json().then(function(data) {
-                console.log(JSON.stringify(data))
+                console.log(JSON.stringify(data));
+
+                const successDiv = document.getElementById("successDiv");
+                const errorDiv = document.getElementById("errorDiv");
+                
                 if (data.status === "success") {
-                    alert("Login successful!");
-                    // window.location.href = "/dashboard"; // Uncomment to redirect
+                    document.getElementById("loginForm").style.display = "none";
+                    successDiv.style.display = "block";
+                    errorDiv.style.display = "none";
+                    
+                    // Show token if available
+                    document.getElementById("successMessage").innerHTML = "Login successful!<br/>JWT Token: <br/><code>" + data.token + "</code>";
+                    
                 } else {
-                    alert("Login failed: " + data.message);
+                    document.getElementById("loginForm").style.display = "none";
+                    successDiv.style.display = "none";
+                    errorDiv.style.display = "block";
+                    document.getElementById("errorMessage").innerText = "Login failed: " + data.error;
                 }
             });
         }
 
         function handleError(error) {
             console.error("Error:", error);
-            alert("Something went wrong while sending the login request.");
+
+            const successDiv = document.getElementById("successDiv");
+            const errorDiv = document.getElementById("errorDiv");
+
+            successDiv.style.display = "none";
+            errorDiv.style.display = "block";
+            document.getElementById("errorMessage").innerText = "Something went wrong while sending the login request.";
         }
     </script>
 </head>
 <body>
+    <div name="loginForm" id="loginForm">
     <h1>Login</h1>
     <form onsubmit="login(event)">
         <label for="email">Email:</label><br/>
@@ -54,5 +73,17 @@
 
         <button type="submit">Login</button>
     </form>
+    </div>
+    <div id="successDiv" class="message" style="display: none;">
+        <div class="success" id="successMessage">
+            <!-- Success message and token will appear here -->
+        </div>
+    </div>
+
+    <div id="errorDiv" class="message" style="display: none;">
+        <div class="error" id="errorMessage">
+            <!-- Error message will appear here -->
+        </div>
+    </div>
 </body>
 </html>
